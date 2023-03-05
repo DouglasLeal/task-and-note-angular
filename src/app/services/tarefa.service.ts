@@ -16,7 +16,10 @@ export class TarefaService {
   constructor(private http: HttpClient) { }
 
   get(): Observable<Tarefa[]>{
-    console.log(this.url)
     return this.http.get<Tarefa[]>(this.url);
+  }
+
+  post(tarefa: Tarefa): Observable<Tarefa> {
+    return this.http.post<Tarefa>(this.url, tarefa);
   }
 }

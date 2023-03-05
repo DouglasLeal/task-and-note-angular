@@ -21,13 +21,14 @@ export class TarefasComponent implements OnInit {
 
   listarTarefas(){
     this.service.get().subscribe(result => {
-      console.log(result)
       this.tarefas = result;
     });
   }
 
   criarTarefa(){
-    this.tarefas.push(this.tarefa);
-    this.tarefa = new Tarefa({});
+    this.service.post(this.tarefa).subscribe(result => {
+      this.listarTarefas();
+      this.tarefa = new Tarefa({});
+    });    
   }
 }
