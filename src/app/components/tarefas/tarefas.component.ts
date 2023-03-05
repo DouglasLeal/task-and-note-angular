@@ -37,4 +37,10 @@ export class TarefasComponent implements OnInit {
       this.listarTarefas();
     });
   }
+
+  editarConcluido(tarefa: Tarefa){
+    tarefa.concluido = !tarefa.concluido;
+    this.service.put(tarefa).subscribe(result => {
+    });
+  }
 }

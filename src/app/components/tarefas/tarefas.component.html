@@ -9,7 +9,7 @@
 
 <div *ngFor="let tarefa of tarefas" class="d-flex justify-content-between mb-3 bg-dark p-3">
     <div class="d-flex align-items-center w-100">
-        <input type="checkbox" class="form-check-input tarefa-concluido" checked="{{tarefa.concluido ? 'checked' : ''}}">
+        <input (change)="editarConcluido(tarefa)" type="checkbox" class="form-check-input tarefa-concluido" checked="{{tarefa.concluido ? 'checked' : ''}}">
         <p class="tarefa-conteudo text-light">{{tarefa.conteudo}}</p>
     </div>
     <button (click)="excluirTarefa(tarefa._id!)" class="btn btn-danger">excluir</button>

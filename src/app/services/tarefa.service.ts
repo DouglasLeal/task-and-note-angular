@@ -10,8 +10,7 @@ import Tarefa from '../models/Tarefa';
 })
 export class TarefaService {
 
-  private readonly url: string = `${environment.apiUrl}/tarefas`
-
+  private readonly url: string = `${environment.apiUrl}/tarefas`;
 
   constructor(private http: HttpClient) { }
 
@@ -21,6 +20,11 @@ export class TarefaService {
 
   post(tarefa: Tarefa): Observable<Tarefa> {
     return this.http.post<Tarefa>(this.url, tarefa);
+  }
+
+  put(tarefa: Tarefa): Observable<Tarefa> {
+    const url = `${this.url}/${tarefa._id}`
+    return this.http.put<Tarefa>(url, tarefa);
   }
 
   delete(id: string): Observable<Tarefa> {
