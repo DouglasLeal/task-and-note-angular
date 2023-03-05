@@ -3,7 +3,8 @@
         <div class="mb-3">
             <input [(ngModel)]="tarefa.conteudo" type="text" class="form-control" placeholder="Tarefa...">
         </div>
-        <button (click)="criarTarefa()" class="btn btn-primary d-block w-100">Criar</button>
+        <button *ngIf="!tarefa._id" (click)="criarTarefa()" class="btn btn-primary d-block w-100">Criar</button>
+        <button *ngIf="tarefa._id" (click)="editarTarefa()" class="btn btn-warning d-block w-100">Editar</button>
     </div>
 </div>
 
@@ -12,5 +13,9 @@
         <input (change)="editarConcluido(tarefa)" type="checkbox" class="form-check-input tarefa-concluido" checked="{{tarefa.concluido ? 'checked' : ''}}">
         <p class="tarefa-conteudo text-light">{{tarefa.conteudo}}</p>
     </div>
-    <button (click)="excluirTarefa(tarefa._id!)" class="btn btn-danger">excluir</button>
+    <div class="d-flex gap-3">
+        <button (click)="prepararEditarConteudo(tarefa)" class="btn btn-warning"><i class="fa-solid fa-pencil"></i></button>
+        <button (click)="excluirTarefa(tarefa._id!)" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
+    </div>
+    
 </div>

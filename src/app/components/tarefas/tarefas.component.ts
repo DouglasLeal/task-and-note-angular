@@ -43,4 +43,15 @@ export class TarefasComponent implements OnInit {
     this.service.put(tarefa).subscribe(result => {
     });
   }
+
+  prepararEditarConteudo(tarefa: Tarefa){
+    Object.assign(this.tarefa, tarefa);
+  }
+
+  editarTarefa(){
+    this.service.put(this.tarefa).subscribe(result => {
+      this.listarTarefas();
+      this.tarefa = new Tarefa({});
+    });
+  }
 }
