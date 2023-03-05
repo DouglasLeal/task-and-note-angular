@@ -31,4 +31,10 @@ export class TarefasComponent implements OnInit {
       this.tarefa = new Tarefa({});
     });    
   }
+
+  excluirTarefa(id: string){
+    this.service.delete(id).subscribe(result => {
+      this.listarTarefas();
+    });
+  }
 }

@@ -12,5 +12,5 @@
         <input type="checkbox" class="form-check-input tarefa-concluido" checked="{{tarefa.concluido ? 'checked' : ''}}">
         <p class="tarefa-conteudo text-light">{{tarefa.conteudo}}</p>
     </div>
-    <button class="btn btn-danger">excluir</button>
+    <button (click)="excluirTarefa(tarefa._id!)" class="btn btn-danger">excluir</button>
 </div>

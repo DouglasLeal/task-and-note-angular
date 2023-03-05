@@ -22,4 +22,9 @@ export class TarefaService {
   post(tarefa: Tarefa): Observable<Tarefa> {
     return this.http.post<Tarefa>(this.url, tarefa);
   }
+
+  delete(id: string): Observable<Tarefa> {
+    const url = `${this.url}/${id}`
+    return this.http.delete<Tarefa>(url);
+  }
 }
