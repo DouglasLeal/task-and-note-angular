@@ -1,13 +1,13 @@
 interface TarefaOptions{
-    _id?: String;
-    conteudo?: String;
-    concluido?: Boolean;
+    _id?: string;
+    conteudo?: string;
+    concluido?: boolean;
 }
 
 class Tarefa{
-    _id?: String;
-    conteudo?: String;
-    concluido?: Boolean;
+    _id?: string;
+    conteudo?: string;
+    concluido?: boolean;
 
     constructor({_id, conteudo, concluido}: TarefaOptions){
         this._id = _id;
