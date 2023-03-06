@@ -13,12 +13,12 @@
     <thead>
       <tr>
         <th>Nome</th>
-        <th>#</th>
+        <th class="text-center">#</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let categoria of categorias">
-        <td>{{categoria.nome}}</td>
+        <td class="table-name">{{categoria.nome}}</td>
         <td class="d-flex gap-3">
             <button (click)="preparaEditar(categoria)" class="btn btn-warning"><i class="fa-solid fa-pencil"></i></button>
             <button (click)="excluirCategoria(categoria._id!)" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>

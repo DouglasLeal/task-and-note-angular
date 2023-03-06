@@ -4,7 +4,7 @@ import { CategoriasComponent } from './components/categorias/categorias.componen
 import { TarefasComponent } from './components/tarefas/tarefas.component';
 
 const routes: Routes = [
-  {path: "", redirectTo: "/categorias", pathMatch: "full"},
+  {path: "", redirectTo: "/tarefas", pathMatch: "full"},
   {path: "tarefas", component: TarefasComponent},
   {path: "categorias", component: CategoriasComponent}
 ];
