@@ -8,13 +8,15 @@ import { FooterComponent } from './components/footer/footer.component';
 import { TarefasComponent } from './components/tarefas/tarefas.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { CategoriasComponent } from './components/categorias/categorias.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    TarefasComponent
+    TarefasComponent,
+    CategoriasComponent
   ],
   imports: [
     BrowserModule,
