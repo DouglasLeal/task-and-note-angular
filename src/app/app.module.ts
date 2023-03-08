@@ -9,6 +9,7 @@ import { TarefasComponent } from './components/tarefas/tarefas.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CategoriasComponent } from './components/categorias/categorias.component';
+import { NotasComponent } from './components/notas/notas.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { CategoriasComponent } from './components/categorias/categorias.componen
     HeaderComponent,
     FooterComponent,
     TarefasComponent,
-    CategoriasComponent
+    CategoriasComponent,
+    NotasComponent
   ],
   imports: [
     BrowserModule,

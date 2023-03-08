@@ -1,0 +1,91 @@
+<button (click)="verificarNota()" data-bs-toggle="modal" data-bs-target="#notaModal" class="btn-modal btn btn-outline-primary btn-lg my-5 d-block mx-auto">Nova Nota</button>
+
+<div class="row">
+    <div *ngFor="let nota of notas" class="col-4">
+        <div class="card text-bg-{{nota.cor}} mb-3">
+            <div class="card-header d-flex justify-content-between">
+                <h5 class="card-title mb-0">{{nota.titulo}}</h5>
+
+                <div class="d-flex gap-1">
+                    <button data-bs-toggle="modal" data-bs-target="#notaEditarModal" class="btn btn-warning" (click)="preparaEditar(nota)">
+                        <i class="fa-solid fa-pencil"></i>
+                    </button>
+
+                    <button class="btn btn-danger" (click)="excluirNota(nota)">
+                        <i class="fa-solid fa-trash-can"></i>
+                    </button>                    
+                </div>                
+            </div>
+            <div class="card-body">                
+                <p class="card-text">{{nota.conteudo}}</p>
+                <p>{{nota.categoria?.nome}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="notaModal" tabindex="-1" aria-labelledby="notaModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="notaModalLabel">Criar Nota</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <input [(ngModel)]="nota.titulo" class="form-control mb-3" placeholder="Título...">
+
+                <div class="row">
+                    <div class="col-6">
+                        <select [(ngModel)]="nota.categoria!._id" class="form-control mb-3">
+                            <option *ngFor="let categoria of categorias" [value]="categoria._id">{{categoria.nome}}</option>
+                        </select>                       
+                    </div>
+
+                    <div class="col-6">
+                        <select [(ngModel)]="nota.cor" class="form-control mb-3">
+                            <option *ngFor="let cor of cores" [value]="cor.valor">{{cor.texto}}</option>
+                        </select>
+                    </div>
+                </div>                
+
+                <textarea [(ngModel)]="nota.conteudo" class="form-control mb-3" placeholder="Conteúdo..."></textarea>
+            </div>
+            <div class="modal-footer">
+                <button (click)="criarNota()" type="button" class="btn btn-primary">Criar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="notaEditarModal" tabindex="-1" aria-labelledby="notaEditarModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="notaEditarModalLabel">Editar Nota</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <input [(ngModel)]="nota.titulo" class="form-control mb-3" placeholder="Título...">
+
+                <div class="row">
+                    <div class="col-6">
+                        <select [(ngModel)]="nota.categoria!._id" class="form-control mb-3">
+                            <option *ngFor="let categoria of categorias" [value]="categoria._id">{{categoria.nome}}</option>
+                        </select>                       
+                    </div>
+
+                    <div class="col-6">
+                        <select [(ngModel)]="nota.cor" class="form-control mb-3">
+                            <option *ngFor="let cor of cores" [value]="cor.valor">{{cor.texto}}</option>
+                        </select>
+                    </div>
+                </div>                
+
+                <textarea [(ngModel)]="nota.conteudo" class="form-control mb-3" placeholder="Conteúdo..."></textarea>
+            </div>
+            <div class="modal-footer">
+                <button (click)="editarNota()" type="button" class="btn btn-warning">Editar</button>
+            </div>
+        </div>
+    </div>
+</div>
