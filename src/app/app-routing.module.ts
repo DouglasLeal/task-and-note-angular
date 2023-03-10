@@ -8,7 +8,8 @@ const routes: Routes = [
   {path: "", redirectTo: "/tarefas", pathMatch: "full"},
   {path: "tarefas", component: TarefasComponent},
   {path: "categorias", component: CategoriasComponent},
-  {path: "notas", component: NotasComponent }
+  {path: "notas", component: NotasComponent },
+  {path: "usuarios", loadChildren: () => import('./components/usuarios/usuarios.module').then(m => m.UsuariosModule)}
 ];
 
 @NgModule({
