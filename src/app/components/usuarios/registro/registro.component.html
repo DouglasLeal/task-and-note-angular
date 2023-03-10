@@ -1,0 +1,21 @@
+<div class="registro">
+    <h1 class="text-center mb-3">Registro</h1>
+
+    <div class="card">
+        <div class="card-body">
+            <label class="fw-bold">Nome:</label>
+            <input [(ngModel)]="usuario.nome" type="text" class="form-control mb-3">
+
+            <label class="fw-bold">Email:</label>
+            <input [(ngModel)]="usuario.email" type="email" class="form-control mb-3">
+
+            <label class="fw-bold">Senha:</label>
+            <input [(ngModel)]="usuario.senha" type="password" class="form-control mb-3">
+
+            <label class="fw-bold">Confirma senha:</label>
+            <input [(ngModel)]="confirmaSenha" type="password" class="form-control mb-3">
+
+            <button (click)="registrarUsuario()" [disabled]="usuario.senha != confirmaSenha || usuario.senha.length < 6 ? 'disabled' : ''" class="btn btn-primary w-100">Registrar</button>
+        </div>
+    </div>
+</div>
