@@ -20,6 +20,6 @@ export class UsuarioService {
 
   login(usuario: Usuario): Observable<Usuario> {
     const url = `${this.url}/login`;
-    return this.http.put<Usuario>(url, usuario);
+    return this.http.post<Usuario>(url, usuario);
   }
 }
