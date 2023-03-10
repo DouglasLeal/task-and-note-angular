@@ -4,18 +4,18 @@
     <div class="card">
         <div class="card-body">
             <label class="fw-bold">Nome:</label>
-            <input type="text" class="form-control mb-3">
+            <input [(ngModel)]="usuario.nome" type="text" class="form-control mb-3">
 
             <label class="fw-bold">Email:</label>
-            <input type="text" class="form-control mb-3">
+            <input [(ngModel)]="usuario.email" type="email" class="form-control mb-3">
 
             <label class="fw-bold">Senha:</label>
-            <input type="text" class="form-control mb-3">
+            <input [(ngModel)]="usuario.senha" type="password" class="form-control mb-3">
 
             <label class="fw-bold">Confirma senha:</label>
-            <input type="text" class="form-control mb-3">
+            <input [(ngModel)]="confirmaSenha" type="password" class="form-control mb-3">
 
-            <button class="btn btn-primary w-100">Registrar</button>
+            <button (click)="registrarUsuario()" [disabled]="usuario.senha != confirmaSenha || usuario.senha.length < 6 ? 'disabled' : ''" class="btn btn-primary w-100">Registrar</button>
         </div>
     </div>
 </div>
